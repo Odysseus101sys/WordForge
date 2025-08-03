@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>IQ Word Challenge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio id="correct-sound" src="correct.mp3" preload="auto"></audio>
+  <audio id="wrong-sound" src="wrong.mp3" preload="auto"></audio>
+
+  <!-- START SCREEN -->
+  <div id="start-screen">
+    <h1> Welcome to IQ Word Challenge!</h1>
+    <p>Can you outsmart Einstein? Guess words, earn IQ points, and climb through all 5 thrilling levels.</p>
+<!-- HOW TO PLAY BUTTON -->
+<button id="howToPlayBtn">How to Play</button>
+
+<!-- HOW TO PLAY MODAL -->
+<div id="howToPlayModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2> How to Play the IQ Word Challenge</h2>
+    <p>Welcome to the ultimate word-guessing challenge! Outwit the greatest minds!</p>
+
+    <h3> Game Overview</h3>
+    <ul>
+      <li>5 Levels (more coming soon)</li>
+      <li>5 word puzzles per level</li>
+      <li>20 seconds per question</li>
+    </ul>
+
+    <h3> IQ Points System</h3>
+    <ul>
+      <li>Level 1: 2 pts/question (Max: 10)</li>
+      <li>Level 2: 4 pts/question (Max: 20)</li>
+      <li>Level 3: 6 pts/question (Max: 30)</li>
+      <li>Level 4: 8 pts/question (Max: 40)</li>
+      <li>Level 5: 12 pts/question (Max: 60)</li>
+    </ul>
+
+    <h3> Clues</h3>
+    <p>Use 3 clues per level to reveal a letter or a hint.</p>
+
+    <h3> IQ Bar</h3>
+    <ul>
+      <li>Your English Teacher – 80</li>
+      <li>Jensen Huang – 120</li>
+      <li>Mark Zuckerberg – 136</li>
+      <li>Elon Musk – 156</li>
+      <li>Albert Einstein – 160</li>
+    </ul>
+
+    <h3> Answering</h3>
+    <p>Type your answer and click <strong>Submit</strong> before time runs out!</p>
+  </div>
+</div>
+
+    <button onclick="startGame()">Start Game</button>
+  </div>
+
+  <!-- GAME AREA -->
+  <div class="game-container" style="display:none">
+    <h1> IQ Word Challenge</h1>
+    <div id="iq-bar"></div>
+    <p id="milestone-msg"></p>
+    
+    <div id="level-info">Level 1</div>
+    <div id="puzzle-box">_ _ _ _ _</div>
+    <p id="clue">Clue: </p>
+
+    <input type="text" id="answer-input" placeholder="Type your answer">
+    <button type="button" onclick="submitAnswer()">Submit</button>
+    
+    <p id="timer">⏱️ Time: 20s</p>
+    <p id="feedback"></p>
+
+    <button id="clue-btn" onclick="useClue()">Use Clue (3 left)</button>
+
+    <p id="score">IQ: 0</p>
+  </div>
+
+<div id="gameOverScreen" style="display: none; text-align: center;">
+  <h2>Game Over</h2>
+  <p id="finalScore"></p>
+  <p id="congratsMessage"></p>
+  <button onclick="retryGame()">Retry</button>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
